@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.demo.dto.FornecedorRequestDTO;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -24,10 +26,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "idFornecedor")
+@EqualsAndHashCode(of = "id")
 public class Fornecedor implements UserDetails{
     
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+
     private String idFornecedor;
     
     private String senha;
@@ -41,7 +45,7 @@ public class Fornecedor implements UserDetails{
     private UserRole role;
 
     public Fornecedor(FornecedorRequestDTO data) {
-        this.idFornecedor = data.id_fornecedor();
+        this.idFornecedor = data.idFornecedor();
         this.senha = data.senha();
         this.razao_social = data.razao_social();
         this.nome_fantasia = data.nome_fantasia();

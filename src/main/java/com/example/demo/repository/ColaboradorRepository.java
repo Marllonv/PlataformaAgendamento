@@ -6,6 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.demo.entity.Colaborador;
 
 public interface ColaboradorRepository extends JpaRepository<Colaborador, String>{
-    UserDetails findByMatricula(String id);
+    UserDetails findByMatricula(String matricula);
 } 
 

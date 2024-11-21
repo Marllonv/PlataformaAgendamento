@@ -6,5 +6,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.demo.entity.Fornecedor;
 
 public interface FornecedorRepository extends JpaRepository<Fornecedor, String> {
-    UserDetails findByIdFornecedor(String id_fornecedor);
+    UserDetails findByIdFornecedor(String idFornecedor);
 }
