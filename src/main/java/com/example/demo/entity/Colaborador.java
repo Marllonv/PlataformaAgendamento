@@ -50,6 +50,14 @@ public class Colaborador implements UserDetails {
         this.role = data.role();
     }
 
+    public Colaborador(String matricula, String senha, String nome, String email, UserRole role) {
+        this.matricula = matricula;
+        this.senha = senha;
+        this.nome = nome;
+        this.email = email;
+        this.role = role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));

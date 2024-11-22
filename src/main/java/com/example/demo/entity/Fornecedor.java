@@ -53,6 +53,15 @@ public class Fornecedor implements UserDetails{
         this.role = data.role();
     }
 
+    public Fornecedor(String idFornecedor, String senha, String razao_social, String nome_fantasia, String cnpj, UserRole role) {
+        this.idFornecedor = idFornecedor;
+        this.senha = senha;
+        this.razao_social = razao_social;
+        this.nome_fantasia = nome_fantasia;
+        this.cnpj = cnpj;
+        this.role = role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
