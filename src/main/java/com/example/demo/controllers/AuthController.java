@@ -50,7 +50,7 @@ public class AuthController {
         } else if (principal instanceof Fornecedor){
             token = tokenService.generateToken((Fornecedor) auth.getPrincipal());
         } else {
-            token = "Não tá conseguindo";
+            token = "";
         }
         
         return ResponseEntity.ok(new LoginResponseDTO(token));
