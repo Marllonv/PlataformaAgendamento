@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.AuthDTO;
 import com.example.demo.dto.ColaboradorRequestDTO;
 import com.example.demo.dto.FornecedorRequestDTO;
+import com.example.demo.dto.LoginResponseDTO;
 import com.example.demo.entity.Colaborador;
 import com.example.demo.entity.Fornecedor;
 import com.example.demo.repository.ColaboradorRepository;
 import com.example.demo.repository.FornecedorRepository;
+import com.example.demo.service.TokenService;
 
 import jakarta.validation.Valid;
 
@@ -33,13 +35,28 @@ public class AuthController {
     @Autowired
     private ColaboradorRepository colaboradorRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
+    @SuppressWarnings("rawtypes")
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthDTO data){
-        var username = new UsernamePasswordAuthenticationToken(data.login(), data.password());
-        var auth = this.authenticationManager.authenticate(username);
-        return ResponseEntity.ok().build();
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
+        var auth = this.authenticationManager.authenticate(usernamePassword);
+        Object principal = auth.getPrincipal();
+        String token = null;
+        if (principal instanceof Colaborador) {
+            token = tokenService.generateToken((Colaborador) auth.getPrincipal());
+        } else if (principal instanceof Fornecedor){
+            token = tokenService.generateToken((Fornecedor) auth.getPrincipal());
+        } else {
+            token = "Não tá conseguindo";
+        }
+        
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/register/colaborador")
     public ResponseEntity registerColaborador(@RequestBody @Valid ColaboradorRequestDTO data) {
         if (this.colaboradorRepository.findByMatricula(data.matricula()) != null) return ResponseEntity.badRequest().build();
@@ -53,6 +70,7 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/register/fornecedor")
     public ResponseEntity registerFornecedor(@RequestBody @Valid FornecedorRequestDTO data) {
         if (this.fornecedorRepository.findByIdFornecedor(data.idFornecedor()) != null) return ResponseEntity.badRequest().build();

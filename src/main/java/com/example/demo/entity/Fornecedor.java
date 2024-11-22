@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Fornecedor implements UserDetails{
+public class Fornecedor implements UserDetails {
     
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

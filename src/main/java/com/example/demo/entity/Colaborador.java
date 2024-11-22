@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "matricula")
-public class Colaborador implements UserDetails {
+public class Colaborador implements UserDetails{
 
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -88,4 +88,5 @@ public class Colaborador implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
