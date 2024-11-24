@@ -22,14 +22,6 @@ public class ColaboradorController {
     @Autowired
     private ColaboradorRepository repository;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping
-    public void saveColaborador(@RequestBody ColaboradorRequestDTO data){
-        Colaborador colaboradorData = new Colaborador(data);
-        repository.save(colaboradorData);
-        return;
-    }
-
     @GetMapping
     public List<ColaboradorResponseDTO> getAll(){
         List<ColaboradorResponseDTO> colaboradorList = repository.findAll().stream().map(ColaboradorResponseDTO::new).toList();

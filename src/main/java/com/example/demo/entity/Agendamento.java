@@ -35,4 +35,14 @@ public class Agendamento {
 
     private LocalDate data;
     
+    public Agendamento(Solicitacao solicitacao) {
+        this.id = solicitacao.getId();
+        this.fornecedor = solicitacao.getFornecedor();
+        this.tipoCarga = solicitacao.getTipoCarga();
+        this.tipoDescarga = solicitacao.getTipoDescarga();
+        this.recorrencia = solicitacao.getRecorrencia();
+        this.observacao = solicitacao.getObservacao();
+        this.data = solicitacao.getData();
+    }
+
 }

@@ -25,6 +25,7 @@ public class SolicitacaoController {
 
     @Autowired
     SolicitacaoRepository solicitacaoRepository;
+    
     @PostMapping("/criar")
     public ResponseEntity saveSolicitacao(@RequestBody @Valid SolicitacaoRequestDTO data) {
         Solicitacao novaSolicitacao = new Solicitacao(data);

@@ -1,8 +1,13 @@
 package com.example.demo.entity;
 
 import java.time.LocalDate;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.dto.SolicitacaoRequestDTO;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +30,7 @@ import lombok.NoArgsConstructor;
 public class Solicitacao {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private Long id;
 
     private String fornecedor;
