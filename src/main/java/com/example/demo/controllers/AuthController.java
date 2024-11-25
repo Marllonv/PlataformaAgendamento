@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,7 @@ public class AuthController {
 
     @SuppressWarnings("rawtypes")
     @PostMapping("/login")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity login(@RequestBody @Valid AuthDTO data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
@@ -57,6 +59,7 @@ public class AuthController {
     }
 
     @SuppressWarnings("rawtypes")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/register/colaborador")
     public ResponseEntity registerColaborador(@RequestBody @Valid ColaboradorRequestDTO data) {
         if (this.colaboradorRepository.findByMatricula(data.matricula()) != null) return ResponseEntity.badRequest().build();

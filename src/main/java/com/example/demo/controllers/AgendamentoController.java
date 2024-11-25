@@ -23,6 +23,7 @@ import com.example.demo.repository.AgendamentoRepository;
 import com.example.demo.repository.SolicitacaoRepository;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("agendamento")
 public class AgendamentoController {
     
@@ -32,6 +33,7 @@ public class AgendamentoController {
     @Autowired
     private AgendamentoRepository agendamentoRepository;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")  
     @PostMapping("/criar")
     public ResponseEntity criarAgendamento(@RequestBody Long id) {
 

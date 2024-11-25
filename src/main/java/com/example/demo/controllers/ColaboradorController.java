@@ -16,6 +16,7 @@ import com.example.demo.entity.Colaborador;
 import com.example.demo.repository.ColaboradorRepository;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("colaborador")
 public class ColaboradorController {
 
