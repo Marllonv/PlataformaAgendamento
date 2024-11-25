@@ -1,0 +1,41 @@
+REGISTROS FEITOS NO BANCO DE DADOS(COLABORADORES):
+
+{
+	"matricula": "01278012",
+	"senha": "jonparenteses12",
+	"nome": "Jonatas Lopes",
+	"email": "jonatasjon@gmail.com",
+	"role": "ADMIN"
+}
+
+{
+	"matricula": "01278002",
+	"senha": "josejosejose123",
+	"nome": "José Olegário",
+	"email": "anotherjose@gmail.com",
+	"role": "ADMIN"
+}
+
+{
+	"matricula": "01277916",
+	"senha": "giiiiO321",
+	"nome": "Giovanna Rodrigues",
+	"email": "giorogrigues@gmail.com",
+	"role": "ADMIN"
+}
+
+{
+	"matricula": "01277804",
+	"senha": "lucas_Costa!",
+	"nome": "Lucas Costa",
+	"email": "elquinhas@gmail.com",
+	"role": "ADMIN"
+}
+
+{
+	"matricula": "01277902",
+	"senha": "marllon_123",
+	"nome": "Marllon Vicente",
+	"email": "marllonvicente20@gmail.com",
+	"role": "ADMIN"
+}
