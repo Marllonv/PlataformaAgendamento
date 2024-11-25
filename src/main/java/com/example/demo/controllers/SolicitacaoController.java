@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.FornecedorResponseDTO;
 import com.example.demo.dto.SolicitacaoRequestDTO;
 import com.example.demo.dto.SolicitacaoResponseDTO;
 import com.example.demo.entity.Solicitacao;
@@ -26,6 +25,7 @@ public class SolicitacaoController {
     @Autowired
     SolicitacaoRepository solicitacaoRepository;
     
+    @SuppressWarnings("rawtypes")
     @PostMapping("/criar")
     public ResponseEntity saveSolicitacao(@RequestBody @Valid SolicitacaoRequestDTO data) {
         Solicitacao novaSolicitacao = new Solicitacao(data);

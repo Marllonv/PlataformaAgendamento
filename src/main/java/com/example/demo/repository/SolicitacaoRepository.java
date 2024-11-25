@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.Solicitacao;
 
 public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {
+    @SuppressWarnings("null")
     Optional<Solicitacao> findById(Long id); // Renamed method
 
     List<Solicitacao> findByFornecedor(String fornecedor); // Use findByFornecedor

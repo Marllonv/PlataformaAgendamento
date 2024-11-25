@@ -1,10 +1,6 @@
 package com.example.demo.entity;
 
 import java.time.LocalDate;
-import java.util.Collection;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.dto.SolicitacaoRequestDTO;
 import com.fasterxml.jackson.annotation.JsonProperty;
