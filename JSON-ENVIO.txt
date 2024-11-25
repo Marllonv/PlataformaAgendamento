@@ -1,0 +1,19 @@
+TIPOS DE CARGA:
+Frios,
+Granel,
+Carnes,
+Descartáveis,
+Conservas,
+Materiais de limpeza
+
+TIPOS DE DESCARGA
+Manual,
+Paletizada
+
+RECORRENCIA
+Única,
+Diária,
+Semanal,
+Mensal,
+Trimestral,
+Anual
