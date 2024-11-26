@@ -21,9 +21,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "fornecedores")
-@Data
 @Table(name = "fornecedores")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -91,6 +89,35 @@ public class Fornecedor implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    // Getters para cada atributo
+    public String getId() {
+        return id;
+    }
+
+    public String getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getRazao_social() {
+        return razao_social;
+    }
+
+    public String getNome_fantasia() {
+        return nome_fantasia;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public UserRole getRole() {
+        return role;
     }
 
 }

@@ -21,9 +21,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "colaboradores")
-@Data
 @Table(name = "colaboradores")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "matricula")
@@ -87,6 +85,30 @@ public class Colaborador implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public UserRole getRole() {
+        return role;
     }
 
 }

@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "agendamentos")
 @Table(name = "agendamentos")
-@Data
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -43,6 +41,35 @@ public class Agendamento {
         this.recorrencia = solicitacao.getRecorrencia();
         this.observacao = solicitacao.getObservacao();
         this.data = solicitacao.getData();
+    }
+
+    // Getters using traditional approach (without Lombok)
+    public Long getId() {
+        return id;
+    }
+
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public String getTipoCarga() {
+        return tipoCarga;
+    }
+
+    public String getTipoDescarga() {
+        return tipoDescarga;
+    }
+
+    public String getRecorrencia() {
+        return recorrencia;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 
 }

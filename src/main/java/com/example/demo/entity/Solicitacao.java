@@ -11,15 +11,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "solicitacoes")
 @Table(name = "solicitacoes")
-@Data
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -48,6 +44,34 @@ public class Solicitacao {
         this.recorrencia = data.recorrencia();
         this.observacao = data.observacao();
         this.data = data.data();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public String getTipoCarga() {
+        return tipoCarga;
+    }
+
+    public String getTipoDescarga() {
+        return tipoDescarga;
+    }
+
+    public String getRecorrencia() {
+        return recorrencia;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 
 }
